@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>board</title>
+    <link href="styles/bootstrap.min.css" rel="stylesheet">
+    <link href="styles/base.css" rel="stylesheet">
+  </head>
+  <body>
+    <ul class="nav nav-tabs">
+      <li role="presentation"><a href="#">全部留言</a></li>
+      <li role="presentation"><a href="#">关于我的</a></li>
+    </ul>
+    <div class="container">
+      <div class="signin-or-register">
+        <div class="detail">
+          <div class="header-left">
+            <h1>欢迎留言</h1>
+          </div>
+          <div class="header-right">
+            <button type="button" class="btn btn-default">注册</button>
+            <button type="button" class="btn btn-default">登录</button>
+          </div>
+        </div>
+      </div>
+      <div class="list">
+        <div class="row">
+          <div class="content">
+            <p>这个是一个留言</p>
+          </div>
+          <div class="about">
+            <span><a href="#">周某人留言余某人</a></span>
+          </div>
+          <div class="reply">
+            <a data-toggle="modal" data-target="#exampleModal" data-whatever="@fat">回复</a>
+          </div>
+        </div>
+        <div class="row">
+          <div class="content">
+            <p>这个是一个留言</p>
+          </div>
+          <div class="about">
+            <span><a href="#">周某人留言余某人</a></span>
+          </div>
+          <div class="reply">
+            <a data-toggle="modal" data-target="#exampleModal" data-whatever="@mod">回复</a>
+          </div>
+        </div>
+      </div>
+      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="exampleModalLabel">New message</h4>
+            </div>
+            <div class="modal-body">
+              <form>
+                <div class="form-group">
+                  <label for="recipient-name" class="control-label">Recipient:</label>
+                  <input type="text" class="form-control" id="recipient-name">
+                </div>
+                <div class="form-group">
+                  <label for="message-text" class="control-label">Message:</label>
+                  <textarea class="form-control" id="message-text"></textarea>
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Send message</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="foot">
+        <p>© 2013 XieStore • Made by brittyu with ♥</p>
+      </div>
+    </div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="http://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="scripts/bootstrap.min.js"></script>
+    <script type="text/javascript">
+      $('#exampleModal').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget) // Button that triggered the modal
+        var recipient = button.data('whatever') // Extract info from data-* attributes
+        // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+        // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+        var modal = $(this)
+        modal.find('.modal-title').text('New message to ' + recipient)
+        modal.find('.modal-body input').val(recipient)
+      })
+    </script>
+  </body>
+</html>
